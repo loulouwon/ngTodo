@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { JqueryComponent } from './jquery/jquery.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
+import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -19,7 +22,14 @@ import {routes} from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

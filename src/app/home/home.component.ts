@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  // todo:메뉴 버튼 클릭시 메뉴가 가리지 않게 하기
   constructor() { }
 
   ngOnInit() {
