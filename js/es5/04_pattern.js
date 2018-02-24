@@ -12,7 +12,7 @@ com.eastflag.java.getX();
 com.eastflag.java.x = 'change';
 com.eastflag.java.getX();*/
 
-// IIFE (즉시 실행함수) 패턴  --> 클로저변수로 만드는 것
+// IIFE (즉시 실행함수) 패턴
 var com = {};
 com.eastflag = {};
 com.eastflag.java = (function () {

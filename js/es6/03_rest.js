@@ -1,5 +1,5 @@
 // 나머지 연산자 ...
-//variable argument : 인자의 개수가 가변적이다
+// variable argument
 function sortRestArgs(...theArgs) {
     var sortedArgs = theArgs.sort();
     return sortedArgs;

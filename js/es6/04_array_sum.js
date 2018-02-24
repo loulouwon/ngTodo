@@ -8,4 +8,3 @@ let arr = [...array1, ...array2, ...array3];
 
 let sum = arr.reduce((prev,curr) => prev + curr);
 console.log(sum);
-

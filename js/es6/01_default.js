@@ -11,5 +11,3 @@ myFunction(6,7);
 
 // 3. 3번째 파라메터 z로 넘기는 방법
 myFunction(undefined, undefined, 1);
-
-//myFunction(x,?y,?z); //?를 쓰면 옵션 파라메타
