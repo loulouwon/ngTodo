@@ -22,4 +22,12 @@ export class UserService {
   addTodo(params: TodoVO) {
     return this.http.post(this.SERVER + '/api/todo', params, {headers: this.headers});
   }
+
+  modifyTodo(params: TodoVO) {
+    return this.http.put(this.SERVER + '/api/todo', params, {headers: this.headers});
+  }
+
+  removeTodo(params: number) {
+    return this.http.delete(this.SERVER + `/api/todo?todo_id=${params}`);
+  }
 }

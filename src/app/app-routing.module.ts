@@ -13,6 +13,6 @@ export const routes: Routes = [
     ]},
 
   // 관리자 화면
-  // { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
+  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 
 ];
