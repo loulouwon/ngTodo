@@ -16,11 +16,12 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
       ]),
       transition('in => void', [
         animate(300, keyframes([
-          style({opacity: 1, transform: 'translateX(0)', offset: 0}),
+          style({opacity: 1, transform: 'translateX(0)',     offset: 0}),
           style({opacity: 1, transform: 'translateX(-50px)', offset: 0.7}),
-          style({opacity: 0, transform: 'translateX(100%)', offset: 1.0})
+          style({opacity: 0, transform: 'translateX(100%)',  offset: 1.0})
         ]))
       ]),
+
     ])
   ]
 })
@@ -28,6 +29,7 @@ export class AngularComponent implements OnInit {
   newTodo: TodoVO = new TodoVO(); // 할일 추가를 위한 모델 데이터
   todoList: Array<TodoVO>; // 할일 목록
   tempTodoMap = new Map<number, TodoVO>(); // 수정시 값을 저장하기 위한 임시 컬렉션
+
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -64,12 +66,14 @@ export class AngularComponent implements OnInit {
   }
 
   modifyTodo(item: TodoVO) {
-    this.userService.modifyTodo(item).subscribe((body: TodoVO) => {
-      item.isFinished = body.isFinished;
-      item.todo = body.todo;
-      item.updated = body.updated;
-      item.isEdited = false;
-    });
+    this.userService.modifyTodo(item)
+      .subscribe((body: TodoVO) => {
+        item.isFinished = body.isFinished;
+        item.todo = body.todo;
+        item.updated = body.updated;
+        // 수정 폼을 원복
+        item.isEdited = false;
+      });
   }
 
   removeTodo(item: TodoVO, index: number) {

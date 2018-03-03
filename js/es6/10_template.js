@@ -1,4 +1,4 @@
-/*let tag = function(strings, ...values) {
+let tag = function(strings, ...values) {
     console.log(strings);
     console.log(...values);
     let result = "";
@@ -11,7 +11,7 @@
     }
 
     return result;
-};*/
+};
 
 let a = 20;
 let b = 10;

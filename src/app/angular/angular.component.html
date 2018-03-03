@@ -12,17 +12,17 @@
 
 <div class="table mt-2">
   <div class="tr">
-    <div class="th">완료</div>
-    <div class="th">todo</div>
+    <div class="th" style="flex-grow: 0.5;">완료</div>
+    <div class="th" style="flex-grow: 2;">todo</div>
     <div class="th">생성일</div>
     <div class="th">수정일</div>
     <div class="th">수정및삭제</div>
   </div>
   <ng-template ngFor let-item [ngForOf]="todoList" let-idx="index">
     <div class="tr" [@flyInOut] = "'in'" *ngIf="!item.isEdited" appHighlight [HighlightColor]="'#a1bba6'">
-      <div class="td">{{item.isFinished ? '완료' : '미완료'}}</div>
-      <div class="td">{{item.todo}}</div>
-      <div class="td">{{item.created | mydate: 'absdefg'}}</div>
+      <div class="td" style="flex-grow: 0.5;">{{item.isFinished ? '완료' : '미완료'}}</div>
+      <div class="td" style="flex-grow: 2;">{{item.todo}}</div>
+      <div class="td">{{item.created | mydate: 'abcdefg'}}</div>
       <div class="td">{{item.updated | date: 'yyyy-MM-dd aa HH:mm'}}</div>
       <div class="td">
         <button mat-raised-button color="accent" (click)="save(item)">수정</button>
@@ -45,3 +45,5 @@
     </div>
   </ng-template>
 </div>
+
+{{ '111111111' | number}}

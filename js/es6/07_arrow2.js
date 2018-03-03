@@ -1,5 +1,4 @@
 // arrow 펑션과 lexical function
-// lexical => 현재 context
 // 1,2,3 출력 되도록 수정하시오.
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98
 /*function Person() {

@@ -19,6 +19,7 @@ export class UserService {
   getTodoList() {
     return this.http.get(this.SERVER + '/api/todo');
   }
+
   addTodo(params: TodoVO) {
     return this.http.post(this.SERVER + '/api/todo', params, {headers: this.headers});
   }
@@ -27,7 +28,7 @@ export class UserService {
     return this.http.put(this.SERVER + '/api/todo', params, {headers: this.headers});
   }
 
-  removeTodo(params: number) {
-    return this.http.delete(this.SERVER + `/api/todo?todo_id=${params}`);
+  removeTodo(param: number) {
+    return this.http.delete(this.SERVER + `/api/todo?todo_id=${param}`);
   }
 }

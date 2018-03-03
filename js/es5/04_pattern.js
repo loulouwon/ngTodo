@@ -24,3 +24,4 @@ com.eastflag.java = (function () {
 })();
 
 com.eastflag.java.getX();
+console.log(com.eastflag.java);
