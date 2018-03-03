@@ -10,7 +10,7 @@ import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule,
-  MatNativeDateModule,
+  MatNativeDateModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import { MydatePipe } from './mydate.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NicknameComponent } from './nickname/nickname.component';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 
 @NgModule({
@@ -56,9 +57,10 @@ import { NicknameComponent } from './nickname/nickname.component';
     MatInputModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {TodoVO} from './domain/todo.vo';
+import {MemberVO} from './domain/member.vo';
 
 @Injectable()
 export class UserService {
@@ -32,7 +33,12 @@ export class UserService {
     return this.http.delete(this.SERVER + `/api/todo?todo_id=${param}`);
   }
 
-  getSocial (site: string) {
+  // 인증----------------------
+  getSocial(site: string) {
     return this.http.get(this.SERVER + `/api/social?site=${site}`);
+  }
+
+  signUp(member: MemberVO) {
+    return this.http.post(this.SERVER + '/api/signUp', member, {headers: this.headers});
   }
 }
