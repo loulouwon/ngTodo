@@ -31,4 +31,8 @@ export class UserService {
   removeTodo(param: number) {
     return this.http.delete(this.SERVER + `/api/todo?todo_id=${param}`);
   }
+
+  getSocial (site: string) {
+    return this.http.get(this.SERVER + `/api/social?site=${site}`);
+  }
 }
