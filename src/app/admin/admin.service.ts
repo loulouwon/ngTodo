@@ -27,6 +27,10 @@ export class AdminService {
     return this.http.post(this.SERVER + '/api/news', news, {headers: this.headers});
   }
 
+  removeNews(news_id: number) {
+    return this.http.delete(this.SERVER + `/api/news?news_id=${news_id}`);
+  }
+
   imageUpload(formData: FormData) {
     const headers = new HttpHeaders();
     // headers.append('Content-Type', 'multipart/form-data'); //브라우저가 자동 생성함.

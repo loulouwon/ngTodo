@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AdminService} from '../../admin.service';
 import {NewsVO} from '../../../domain/news.vo';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {ViewDialogComponent} from '../view-dialog/view-dialog.component';
+import {ResultVO} from '../../../domain/result.vo';
 
 @Component({
   selector: 'app-view',
@@ -14,7 +15,8 @@ export class ViewComponent implements OnInit {
   public news: NewsVO;
 
   constructor(private route: ActivatedRoute, private adminService: AdminService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog, private snackBar: MatSnackBar,
+              private router: Router) {
     this.route.params.subscribe(params => {
       console.log(params);
       // 글상세 가져오기
@@ -34,6 +36,22 @@ export class ViewComponent implements OnInit {
       });
   }
   confirmDelete() {
-    this.dialog.open(ViewDialogComponent, null);
+    const dialogRef = this.dialog.open(ViewDialogComponent, {
+      data: {title: this.news.title, msg: '삭제하시겠습니까?'}
+    });
+
+    dialogRef.afterClosed().subscribe(data => {
+      console.log(data);
+      if (data) {
+        this.adminService.removeNews(this.news.news_id)
+          .subscribe((body: ResultVO) => {
+            if (body.result === 0) {
+              this.snackBar.open('삭제되었습니다.',null, {duration: 20000});
+              this.router.navigateByUrl('/admin/news');
+            }
+          });
+      }
+    });
+
   }
 }
